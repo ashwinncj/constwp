@@ -1,5 +1,7 @@
 
 <!--//Login Template-->
+<!--Login Methods defined in ConstructMe-public.js-->
+
 <div id="cme-login-form" class="c100 cme-login-form">
     <p id="login-error-message" style="color: red;"></p>
     <label>Email*</label>
