@@ -74,6 +74,7 @@ class Constructme_Admin {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/constructme-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'public', plugins_url($this->plugin_name) . '/public/css/constructme-public.css', array(), $this->version, 'all' );
 
 	}
 
