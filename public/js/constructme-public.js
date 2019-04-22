@@ -50,6 +50,7 @@ jQuery(document).ready(function ($) {
                         document.cookie = "cme-token=" + data.token + "; expires=" + new Date(data.expiry) + "; path=/;";
                         $('#cme-login-form').hide();
                         $('#cme-logout-form').show();
+                        $('#user-password').val('')
 
                     } else if (data.error) {
                         console.log(data.error);
@@ -60,6 +61,7 @@ jQuery(document).ready(function ($) {
     }
 
 });
+
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
