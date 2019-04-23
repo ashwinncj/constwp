@@ -11,5 +11,6 @@
     <button type="button" id="user-login-button" class="cme-login-form-btn">Login</button>
 </div>
 <div id="cme-logout-form" class="c100 cme-login-form" style="display: none;">
+    <p>User Logged in...</p>
     <button type="button" id="user-logout-button"  class="cme-login-form-btn" >Logout</button>
 </div>
