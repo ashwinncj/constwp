@@ -7,6 +7,20 @@
     vertical-align: top;
     display: inline-block;
 }
-.cme-login-form{
-    
+.cme-login-form input,.cme-login-form input[type="email"],.cme-login-form input[type="password"]{
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid black;
+    background: white;
+}
+.cme-login-form-btn{
+    width: 150px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px 1px gray;
+}
+
+.cme-login-form-btn:hover{
+    box-shadow: 1px 1px 5px 0px black;
+
 }
