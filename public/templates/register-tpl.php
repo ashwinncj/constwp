@@ -1,7 +1,6 @@
 
-<!--//Login Template-->
-<!--Login Methods defined in ConstructMe-public.js-->
-
+<!--User registration form-->
+<!--Functions handled in constructme-public.js file-->
 <div id="cme-register-form" class="c100 cme-login-form">
     <p id="register-error-message" style="color: red;"></p>
     <label>Email*</label>
