@@ -16,6 +16,10 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    $('#register-confirm-password').change(function (e) {
+        $('#user-register-button').focus();
+    });
+
     function check_login() {
         var user = getCookie('cme-token');
         if (user != '' && user != null) {
@@ -55,6 +59,36 @@ jQuery(document).ready(function ($) {
                     } else if (data.error) {
                         console.log(data.error);
                         $('#login-error-message').html(data.error);
+                    }
+
+                });
+    }
+
+    $('#user-register-button').click(function () {
+        let data = {};
+        data.email = $('#register-user-email').val();
+        data.password = $('#register-user-password').val();
+        data.confirmpassword = $('#register-confirm-password').val();
+        if (data.email != '' && data.password != '' && data.confirmpassword != '') {
+            if (data.password == data.confirmpassword) {
+                console.log('Trying to register user...');
+                cmeregister(data);
+            } else {
+                $('#register-error-message').html('Passwords entered don\'t match!');
+            }
+        } else {
+            $('#register-error-message').html('Please fill all the required fields!');
+        }
+    });
+
+    function cmeregister(data) {
+        $.post('http://localhost/construct-api/authorize/register', data)
+                .done(function (data) {
+                    if (data.success == true) {
+                        $('#cme-register-form').html('User successfully registered! Please continue to login...');
+                    } else if (data.error) {
+                        console.log(data.error);
+                        $('#register-error-message').html(data.error);
                     }
 
                 });
