@@ -40,11 +40,19 @@ jQuery(document).ready(function ($) {
     });
 
     $('#user-login-button').click(function () {
-        console.log('Logging in...');
         let data = {};
         data.email = $('#user-email').val();
         data.password = $('#user-password').val();
-        cmelogin(data);
+        if (data.email != '' && data.password != '') {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+                console.log('Logging in...');
+                cmelogin(data);
+            } else {
+                $('#login-error-message').html('Invalid Email format!');
+            }
+        } else {
+            $('#login-error-message').html('Please fill all the required fields!');
+        }
     });
 
     function cmelogin(data) {
@@ -70,11 +78,15 @@ jQuery(document).ready(function ($) {
         data.password = $('#register-user-password').val();
         data.confirmpassword = $('#register-confirm-password').val();
         if (data.email != '' && data.password != '' && data.confirmpassword != '') {
-            if (data.password == data.confirmpassword) {
-                console.log('Trying to register user...');
-                cmeregister(data);
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+                if (data.password == data.confirmpassword) {
+                    console.log('Trying to register user...');
+                    cmeregister(data);
+                } else {
+                    $('#register-error-message').html('Passwords entered don\'t match!');
+                }
             } else {
-                $('#register-error-message').html('Passwords entered don\'t match!');
+                $('#register-error-message').html('Invalid Email format!');
             }
         } else {
             $('#register-error-message').html('Please fill all the required fields!');
