@@ -97,8 +97,6 @@ class Constructme_Public {
 		 */
 		wp_register_script( 'constructme-suppliers', plugins_url($this->plugin_name) . '/public/js/constructme-suppliers.js', array(), $this->version, 'all' );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/constructme-public.js', array( 'jquery' ), '0.1.1', false );
-		//wp_enqueue_script( 'radel', plugin_dir_url( __FILE__ ) . 'js/radel.js', array( 'jquery' ), $this->version, false );
-
 	}
 
 }

@@ -36,7 +36,7 @@ jQuery(document).ready(function ($) {
                             $('#supplier-error-message').html(data.error);
                         }
                     });
-        }else{
+        } else {
             alert('Your session has expired! Please login again.');
         }
     }
