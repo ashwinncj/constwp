@@ -24,7 +24,7 @@
     box-shadow: 1px 1px 5px 0px black;
 
 }
-.cme-supplier-form input,.cme-supplier-form input[type="email"],.cme-supplier-form input[type="password"]{
+.cme-supplier-form input,.cme-supplier-form input[type="email"],.cme-supplier-form input[type="text"]{
     border: none;
     border-radius: 0px;
     border-bottom: 1px solid black;

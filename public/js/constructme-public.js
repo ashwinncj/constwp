@@ -78,7 +78,7 @@ jQuery(document).ready(function ($) {
         data.password = $('#register-user-password').val();
         data.confirmpassword = $('#register-confirm-password').val();
         if (data.email != '' && data.password != '' && data.confirmpassword != '') {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$/.test(data.email)) {
                 if (data.password == data.confirmpassword) {
                     console.log('Trying to register user...');
                     cmeregister(data);
@@ -123,3 +123,17 @@ function getCookie(cname) {
     }
     return "";
 }
+
+function check_user_login() {
+    var user = getCookie('cme-token');
+    if (user != '' && user != null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function popup_message(){
+}
+
+

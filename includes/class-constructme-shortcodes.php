@@ -19,6 +19,7 @@ function cme_register_function() {
 }
 
 function cme_add_supplier_function() {
+    wp_enqueue_script('constructme-suppliers');
     ob_start();
     require_once plugin_dir_path(dirname(__FILE__)) . 'public/templates/add_supplier-tpl.php';
     return ob_get_clean();
