@@ -133,7 +133,15 @@ function check_user_login() {
     }
 }
 
-function popup_message(){
+function popup_message() {
 }
+function emailTester(inputEmail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$/.test(inputEmail)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+;
 
 
