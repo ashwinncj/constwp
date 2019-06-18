@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+    var apiEndPoint = 'http://localhost/construct-api';
     console.log('RADEL - ConstructMe');
     check_login();
 
