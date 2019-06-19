@@ -22,12 +22,15 @@
 
 <div id="cme-rfq-form" class="c100">
     <p id="rfq-form-error-message" style="color: red;"></p>
-    <label>
-        Pricing Model<br>
-        <input class="image-radio" type="radio" id="rfq-pricing-model" name="rfq_pricing_model" value="total_price">
-        <img src="<?php echo plugins_url('constructme/public/img/total-price.png'); ?>" style="width: 100px;"/>
-        <span style="display: none;">Total Price</span><br>
-    </label>
+    <div>
+        <!--Pricing Selection division.-->
+        <label>
+            Pricing Model<br>
+            <input class="image-radio" type="radio" id="rfq-pricing-model" name="rfq_pricing_model" value="total_price">
+            <img src="<?php echo plugins_url('constructme/public/img/total-price.png'); ?>" style="width: 100px;"/>
+            <span style="display: none;">Total Price</span><br>
+        </label>
+    </div>
     <div>
         <!--    RFQ Details section-->
         <label>Name</label><br>

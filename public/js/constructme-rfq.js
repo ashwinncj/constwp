@@ -5,10 +5,17 @@ jQuery(document).ready(function ($) {
 //Obtain the information from the form Front-end for the RFQ on click of Submit button on the RFQ form.
     $('#add-rfq-button').click(function () {
         //Compile all the form fields into one JSON object to transfer to the API calls function
+        rfqSuppliers = 123;
         let data = {
             pricingModel = $('#rfq-pricing-model').val(),
             name = $('#rfq-name').val(),
-            
+            due_date = $('#rfq-due-date').val(),
+            attachment = $('#rfq-attachment').val(),
+            rfq_details: {
+                brief_description = $('#rfq-brief-description').html(),
+                suppliers: rfqSuppliers
+            }
+
         };
         //Check if all the fields are filled before continuing to the next function.
         if (data.name != '' && data.email != '') {
