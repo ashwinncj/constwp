@@ -89,11 +89,24 @@ jQuery(document).ready(function ($) {
             $.each(suppliers, function (key, value) {
                 if (value.name.toUpperCase().indexOf(searchTerm.toUpperCase()) != -1) {
                     //console.log(value);
-                    list += '<input type="checkbox" name="rfq_supplier[]" value="' + value.id + '" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">' + value.name + '</span><br>';
+//                    list += '<input type="checkbox" onselect="addToSelected();" value="' + value.id + '" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">' + value.name + '</span><br>';
+                    list += '<div class="lists" onclick="addToSelected(' + value.id + ',' + "'" + value.name + "'" + ')">' + value.name + '</div>';
                 }
             });
         }
         //Append the list obtained through the search to the page.
         $('#suppliersOutput').html(list);
     });
+
 });
+
+var selectedSuppliers = [];
+function addToSelected(id, value) {
+    jQuery(document).ready(function ($) {
+        if ($.inArray(id, selectedSuppliers) == -1) {
+            list = '<input checked type="checkbox" se onselect="addToSelected();" value="' + id + '" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">' + value + '</span><br>';
+            $('#selectedSuppliersOutput').append(list);
+            selectedSuppliers.push(id);
+        }
+    });
+}

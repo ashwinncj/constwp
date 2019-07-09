@@ -115,7 +115,15 @@
     .lists{
         font-size: 14px;
         font-weight: bold;
-        margin-left: 5px;
+        background-color: antiquewhite;
+        margin: 5px;
+        padding: 5px;
+        padding-left: 15px;
+    }
+
+    .lists:hover{
+        background-color: #44c5ff;
+        cursor: pointer;
     }
     /*Review and Send box styles*/
     .reviewdetails{
@@ -188,16 +196,18 @@
         <div style="width: 380px; font-family:Raleway; display: inline-block;">
             <input class="fieldinput" type="text" id="rfq-supplier-search" placeholder="Search for suppliers">
             <button id="search-suppliers-button" class="cme-orange-btn" type="button">Search Suppliers</button><br>
+
             <div id="suppliersOutput" style="padding: 10px;">
-                <input type="checkbox" name="rfq_supplier[]" value="" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">Supplier 1</span><br>
-                <input type="checkbox" name="rfq_supplier[]" value="" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">Supplier 1</span><br>
-                <input type="checkbox" name="rfq_supplier[]" value="" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">Supplier 1</span><br>
+                <!--<input type="checkbox" name="rfq_supplier[]" value="" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">Supplier 1</span><br>-->
             </div>
         </div>
         <!--Display Pagination-->
         <div>
             <p style="font-size: 14px; font-weight: bold; margin-left: 25px; font-family: Raleway;"><u>SELECTED SUPPLIERS</u></p>
             <!--Display Selected Suppliers in this section.-->
+            <div id="selectedSuppliersOutput" style="padding: 10px;">
+
+            </div>
         </div>
     </div>
 
