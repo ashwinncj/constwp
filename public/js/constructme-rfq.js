@@ -104,9 +104,39 @@ var selectedSuppliers = [];
 function addToSelected(id, value) {
     jQuery(document).ready(function ($) {
         if ($.inArray(id, selectedSuppliers) == -1) {
-            list = '<input checked type="checkbox" se onselect="addToSelected();" value="' + id + '" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">' + value + '</span><br>';
+//            list = '<input checked type="checkbox" onselect="addToSelected();" value="' + id + '" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">' + value + '</span><br>';
+            list = '<div onclick="removeSelected(this,' + id + ')" class="selectedLists">' + value + '</div>';
             $('#selectedSuppliersOutput').append(list);
             selectedSuppliers.push(id);
+            updateSuppliers();
         }
+    });
+}
+
+function removeSelected(asset, id) {
+
+    jQuery(document).ready(function ($) {
+        asset.remove();
+        for (var i = 0; i < selectedSuppliers.length; i++) {
+            if (selectedSuppliers[i] == id) {
+                selectedSuppliers.splice(i, 1);
+                updateSuppliers();
+            }
+        }
+    });
+}
+
+function updateSuppliers() {
+
+    jQuery(document).ready(function ($) {
+        let reviewSuppliers = '';
+        for (var i = 0; i < selectedSuppliers.length; i++) {
+            $.each(suppliers, function (key, value) {
+                if (selectedSuppliers[i] == value.id) {
+                    reviewSuppliers += '<div class="reviewSuppliers">' + value.name + '</div>';
+                }
+            });
+        }
+        $('#rfq-review-suppliers').html(reviewSuppliers);
     });
 }

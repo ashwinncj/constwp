@@ -122,8 +122,35 @@
     }
 
     .lists:hover{
-        background-color: #44c5ff;
+        background-color: #8cce3f;
         cursor: pointer;
+    }
+    .lists:active{
+        background-color: #6f7f5b;
+    }
+    .selectedLists::after{
+        content: '\2717';
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        text-align: right;
+        color: red;
+    }
+    .selectedLists{
+        font-size: 14px;
+        font-weight: bold;
+        background-color: antiquewhite;
+        margin: 5px;
+        padding: 5px;
+        padding-left: 15px;
+    }
+
+    .selectedLists:hover{
+        background-color: #ff5a4e;
+        cursor: pointer;
+    }
+    .selectedLists:active{
+        background-color: #ad8582;
     }
     /*Review and Send box styles*/
     .reviewdetails{
@@ -148,6 +175,15 @@
 
     .suppliersList{
         margin-top: 10px;
+    }
+    .reviewSuppliers{
+        padding-left: 10px;
+    }
+    .reviewSuppliers::before{
+        content: '\2022';
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
     }
 </style>
 
@@ -195,7 +231,7 @@
         <!--            <label>Select you suppliers</label><br>-->
         <div style="width: 380px; font-family:Raleway; display: inline-block;">
             <input class="fieldinput" type="text" id="rfq-supplier-search" placeholder="Search for suppliers">
-            <button id="search-suppliers-button" class="cme-orange-btn" type="button">Search Suppliers</button><br>
+            <!--<button id="search-suppliers-button" class="cme-orange-btn" type="button">Search Suppliers</button><br>-->
 
             <div id="suppliersOutput" style="padding: 10px;">
                 <!--<input type="checkbox" name="rfq_supplier[]" value="" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">Supplier 1</span><br>-->
@@ -203,10 +239,10 @@
         </div>
         <!--Display Pagination-->
         <div>
-            <p style="font-size: 14px; font-weight: bold; margin-left: 25px; font-family: Raleway;"><u>SELECTED SUPPLIERS</u></p>
+            <p style="font-size: 14px; font-weight: bold; margin:auto; font-family: Raleway;"><u>SELECTED SUPPLIERS</u></p>
             <!--Display Selected Suppliers in this section.-->
-            <div id="selectedSuppliersOutput" style="padding: 10px;">
-
+            <div id="selectedSuppliersOutput" style="padding: 10px;width: 380px">
+                <p>Search above and click on the supplier to add to the list.</p>
             </div>
         </div>
     </div>
@@ -240,9 +276,9 @@
                 {{rfq.attachment}}
             </p>
             <label class="fieldname">Suppliers</label>
-            <p class="reviewdetails" id="rfq-review-suppliers">
+            <div class="reviewdetails" id="rfq-review-suppliers">
                 <!--Display selected suppliers here. (with the cancel supplier image)-->
-            </p>
+            </div>
             <button class="cme-orange-save-send" style="margin-left: 75%" type="button" id="rfq-save-button">Save</button>
             <button class="cme-orange-save-send" style="display: inline; margin-left: auto;" type="button" id="rfq-send-button">Send</button>
         </div>
