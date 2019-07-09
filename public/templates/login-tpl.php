@@ -32,6 +32,7 @@
         margin-bottom: 20px;
         margin-top: 5px;
         padding: 0px;
+        box-shadow: none;
     }
     .cme-orange-btn{
         background-color: #FFA337;

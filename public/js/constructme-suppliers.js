@@ -40,4 +40,5 @@ jQuery(document).ready(function ($) {
             alert('Your session has expired! Please login again.');
         }
     }
+    
 });

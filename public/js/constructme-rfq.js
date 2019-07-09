@@ -1,6 +1,12 @@
 //ConstructMe Add RFQ JS function
 
+//Global scope variables storing the suppliers of the User.
+var suppliers = {};
+
 jQuery(document).ready(function ($) {
+//Call the suppliers GET function to receive the list of suppliers for the users.
+    getSuppliers();
+
     var apiEndPoint = 'http://localhost/construct-api';
 //Obtain the information from the form Front-end for the RFQ on click of Submit button on the RFQ form.
     $('#rfq-save-button').click(function () {
@@ -52,4 +58,42 @@ jQuery(document).ready(function ($) {
             alert('Your session has expired! Please login again.');
         }
     }
+
+    //Function to fetch all the suppliers of the User from the Database.
+    function getSuppliers() {
+        //Test the user login before proceeding.
+        if (check_user_login()) {
+            let data = {};
+            data.token = getCookie('cme-token');
+            //Access the suppliers' list from the database using API
+            $.post('http://localhost/construct-api/suppliers/get', data)
+                    .done(function (data) {
+                        if (data.success == true) {
+                            //Set the variable 'suppliers' with the data received from the response of the API.
+                            suppliers = data.suppliers;
+                        } else if (data.error) {
+                            console.log(data.error);
+                        }
+                    });
+        } else {
+            alert('Your session has expired! Please login again.');
+        }
+    }
+
+    $('#rfq-supplier-search').keyup(function () {
+//    $('#search-suppliers-button').click(function () {
+        let searchTerm = $('#rfq-supplier-search').val();
+        let list = '';
+        //Iterate through each suppliers in the variable and update matching to the search string.
+        if (searchTerm != '') {
+            $.each(suppliers, function (key, value) {
+                if (value.name.toUpperCase().indexOf(searchTerm.toUpperCase()) != -1) {
+                    //console.log(value);
+                    list += '<input type="checkbox" name="rfq_supplier[]" value="' + value.id + '" style="margin-top: 5px;margin-bottom: 5px;"><span class="lists">' + value.name + '</span><br>';
+                }
+            });
+        }
+        //Append the list obtained through the search to the page.
+        $('#suppliersOutput').html(list);
+    });
 });
