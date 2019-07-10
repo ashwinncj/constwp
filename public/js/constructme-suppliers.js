@@ -30,7 +30,8 @@ jQuery(document).ready(function ($) {
                     .done(function (data) {
                         if (data.success == true) {
                             $('#cme-supplier-form').hide();
-                            alert('New supplier added!');
+                            $('#systemMessage').html('<p>New Supplier Added Successfully !</p>');
+                            $('#systemMessage').show();
                         } else if (data.error) {
                             console.log(data.error);
                             $('#supplier-error-message').html(data.error);
@@ -40,5 +41,5 @@ jQuery(document).ready(function ($) {
             alert('Your session has expired! Please login again.');
         }
     }
-    
+
 });

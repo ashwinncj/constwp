@@ -49,11 +49,20 @@
     .cme-orange-btn:hover{
         box-shadow: 0px 0px 5px 0px black;
     }
+    .supplierBox{
+        border: 2px solid #FFA337;
+        box-shadow: 0px 4px 4px -1px grey;
+        margin: auto;
+        height: auto;
+        position: relative;
+        padding: 25px;
+    }
 </style>
 <div style="font-family:Raleway;">
     <p style="font-size: 25px; font-weight: 900; text-align: center;"><u>ADD SUPPLIER</u></p>
 </div>
-<!--<div id="cme-supplier-form" class="c100 cme-supplier-form">-->
+<div class="c100 supplierBox" id="systemMessage" style="display: none;">
+</div>
 <div id="cme-supplier-form" style="width: 300px; font-family:Raleway;">
     <p id="supplier-error-message" style="color: red;"></p>
     <label class="fieldname">Supplier's Name<span class="reqasterisk">*</span></label><br>

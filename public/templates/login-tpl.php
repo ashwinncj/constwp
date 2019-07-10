@@ -66,6 +66,6 @@
     </p>
 </div>
 <div id="cme-logout-form" class="c100 cme-login-form" style="display: none;">
-    <p>User Logged in...</p>
-    <button type="button" id="user-logout-button"  class="cme-login-form-btn" >Logout</button>
+    <p style="font-family: Raleway;">User Logged in...</p>
+    <button type="button" id="user-logout-button"  class="cme-orange-btn" >Logout</button>
 </div>

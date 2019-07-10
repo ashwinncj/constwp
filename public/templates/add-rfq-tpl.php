@@ -171,6 +171,9 @@
         font-family: 'Raleway';
         padding: 10px;
         margin-top: 10px;
+        cursor: pointer;
+        background-color: #ffa337;
+        color: white;
     }
 
     .suppliersList{
@@ -185,8 +188,17 @@
         display: inline-block;
         width: 1em;
     }
+    #systemMessage{
+        font-size: 18px;
+        font-family: Raleway;
+        text-align: center;
+        font-weight: bold;
+    }
 </style>
-
+<div class="c100">
+    <div class="box" id="systemMessage" style="display: none;">
+    </div>
+</div>
 <div id="cme-rfq-form" class="c100" ng-app="">
     <p id="rfq-form-error-message" style="color: red;"></p>
     <div class="box">
@@ -196,7 +208,7 @@
         <label>
             <!--            Pricing Model<br>-->
             <input class="image-radio" type="radio" id="rfq-pricing-model" name="rfq_pricing_model" value="total_price" checked>
-            <img src="<?php echo plugins_url('constructme/public/img/total-price.png'); ?>" style="width: 100px;"/>
+            <img src="<?php echo plugins_url('constructme/public/img/total-price.png'); ?>" style="width: 100px;display: none;"/>
         </label>
         <div>
             <button class="totalprice">TOTAL PRICE</button>
@@ -220,8 +232,14 @@
             <p style="font-size: 10px; font-weight: bold; margin-top: 0px;"><i>Your suppliers must submit their prices by this date</i>
             </p><br>
             <label class="fieldname">Attachments</label><br>
-            <input type="text" id="rfq-attachment" name="rfq_attachment" ng-model="rfq.attachment"><br>
-            <button class="cme-orange-btn" type="button" style="margin-bottom: 10px">Attach Files</button>
+            <form enctype="multipart/form-data">
+                <input type="file" id="rfq-attachment" name="userfile" ng-model="rfq.attachment">
+            </form>
+            <button id="rfqUploadFile" class="cme-orange-btn" type="button" style="margin-bottom: 10px">Attach Files</button>
+            <p style="font-size: 12px; font-weight: bold; margin-top: 0px;"><i>Please compress multiple files into Zip format for multiple uploads.</i></p>
+            <div class="fieldname" id="attachmentOutput">
+                <!--This section is used to display the attached files for the RFQ.-->
+            </div>
         </div>
     </div>
     <!--Select Suppliers Section-->
@@ -273,11 +291,14 @@
             <label class="fieldname">Attachments</label>
             <p class="reviewdetails" id="rfq-review-attachment">
                 <!--Display Attachment File Name/-->
-                {{rfq.attachment}}
+                No File Attached.
             </p>
             <label class="fieldname">Suppliers</label>
             <div class="reviewdetails" id="rfq-review-suppliers">
                 <!--Display selected suppliers here. (with the cancel supplier image)-->
+            </div>
+            <div id="reviewMessage">
+
             </div>
             <button class="cme-orange-save-send" style="margin-left: 75%" type="button" id="rfq-save-button">Save</button>
             <button class="cme-orange-save-send" style="display: inline; margin-left: auto;" type="button" id="rfq-send-button">Send</button>
